@@ -1,9 +1,12 @@
 const Sequelize = require('sequelize');
+const config = require('config');
 
-const sequelize = new Sequelize("hoxify", "my-db-user", "db-p4ss", {
-    dialect: "sqlite",
-    storage: "./database.sqlite",
-    logging: false
+const dbConfig = config.get('db');
+
+const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+    dialect: dbConfig.dialect,
+    storage: dbConfig.storage,
+    logging: dbConfig.logging
 });
 
 module.exports = sequelize;

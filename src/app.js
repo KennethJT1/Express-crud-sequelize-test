@@ -8,7 +8,6 @@ const app = express();
 
 app.use(express.json());
 //roures
-app.use('/',user); 
-
+app.use('/',user);  
 
 module.exports = app;
